@@ -1,6 +1,8 @@
+<html>
+
 ## Projeto CalcX
 
-    Esta é uma calculadora financeira com a finalidade de calculcar os juros e valor acumulado de um capital inicial com aportes mensais.
+Esta é uma calculadora financeira com a finalidade de calculcar os juros e valor acumulado de um capital inicial com aportes mensais.
 
 Seu funcionamento é bem simples, o usuário deve informar o **valor inicial**, **valor mensal** (aporte mensal), **taxa de juros** (em porcentagem por mês ou por ano) e o **periodo** do investimento, podendo ser em mês ou em ano.
 
@@ -24,3 +26,5 @@ A calculadora também está otimizada para mobile, com isso, o usuário pode apr
 ## Onde acessar?
 Para ter acesso a calculadora CalcX, você pode acessar clicando 
 [aqui](https://regal-starship-15fc72.netlify.app/).
+
+</html>
