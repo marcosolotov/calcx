@@ -1,0 +1,199 @@
+body {
+    font-family: 'Play', sans-serif;
+}
+
+.cabecalho {
+    background: rgb(56, 56, 243);
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+    height: 100px;
+    padding: 30px;
+    box-shadow: 0px 3px 20px 0px grey;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Tektur', sans-serif;
+}
+
+.calculadora {
+    padding: 50px;
+    background: whitesmoke;
+    border-radius: 1%;
+}
+
+.titulo {
+    color: rgb(80, 80, 90);
+    padding: 0 0 10px 5px;
+}
+
+.calculo {
+    margin: 0 auto 0 auto;
+}
+
+.meu-calculo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.linha-1 {
+    width: 440px;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 5px;    
+    background: whitesmoke;
+    text-align: center;
+}
+
+.divisao {
+    border-bottom: 3px solid  whitesmoke;
+    margin: 30px auto 30px auto;
+}
+
+.resultado {
+        margin: 0 auto 0 auto;
+}
+
+.resultados {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.rodape {
+    margin: 50px 0 0 0;
+    background: rgb(56, 56, 243);
+    color: white;
+    font-weight: bolder;
+    height: 100px;
+    box-shadow: 0px 3px 20px 0px grey;
+}
+
+p {
+    font-size: 18px;
+}
+
+.resultado-rotulo-1 {
+    font-weight: bold;
+    color: blue;
+}
+
+.resultado-rotulo-2 {
+    font-weight: bold;
+    color: black;
+}
+
+.resultado-rotulo-3 {
+    font-weight: bold;
+    color: green;
+}
+
+th {
+    font-weight: bold;
+    color: rgb(80, 80, 90);
+}
+
+tr {
+    border: 2px 0 solid grey;
+}
+
+td {
+    border: 50px solid grey;
+}
+
+table {
+    font-size: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media screen and (min-width: 0) {
+    .resultado {
+        margin: 0 5px 20px 5px;
+    }
+    .calculo {
+        margin: 0 5px 0 5px;
+    }
+    .calculadora {
+        margin: 0 auto 50px auto;
+    }
+    .tabela-dados {
+        margin: 0 5px 20px 5px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .resultado {
+        margin: 0 auto 20px auto;
+    }
+    .calculo {
+        margin: 0 auto 0 auto;
+    }
+    .calculadora{
+        width: 700px;
+    }
+    .calculo{
+        width: 700px;
+    }
+    .divisao{
+        width: 700px;
+    }
+    .resultado{
+        width: 700px;
+    }
+    .resultados {
+        flex-wrap: nowrap;
+    }
+    .calculadora {
+        margin: 50px auto 50px auto;
+    }
+    .tabela-dados {
+        margin: 0 auto 0 auto;
+        width: 700px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .resultado {
+        margin: 0 auto 20px auto;
+    }
+    .calculo {
+        margin: 0 auto 0 auto;
+    }
+    .calculadora{
+        width: 900px;
+    }
+    .calculo{
+        width: 900px;
+    }
+    .divisao{
+        width: 900px;
+    }
+    .resultado{
+        width: 900px;
+    }
+    .resultados {
+        flex-wrap: nowrap;
+    }
+    .calculadora {
+        margin: 50px auto 50px auto;
+    }
+    .tabela-dados {
+        margin: 0 auto 0 auto;
+        width: 900px;
+    }
+}

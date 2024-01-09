@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CalcX</title>
+        <link rel="stylesheet" href="./reset.css">
+        <link href="./style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Tektur:wght@800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <header class="cabecalho">
+            <h1><span class="material-symbols-outlined">functions</span>CalcX</h1>
+        </header>
+        <main>
+            <section class="calculadora">
+                <h3 class="titulo">Calculadora</h3>
+                <form id="myform">
+                    <div class="mb-3">
+                        <label for="valor-inicial" class="form-label">Valor inicial</label>
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon3">R$</span>
+                          <input type="number" class="form-control" id="valor-inicial" placeholder="0,00">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="valor-mensal" class="form-label">Valor mensal</label>
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon3">R$</span>
+                          <input type="number" class="form-control" id="valor-mensal" placeholder="0,00">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taxa-juros" class="form-label">Taxa de Juros</label>
+                        <div class="input-group">
+                          <span class="input-group-text" id="basic-addon3">%</span>
+                          <input type="number" class="form-control" id="taxa-juros" placeholder="0,00">
+                          <span class="input-group-text">
+                            <select class="form-select" aria-label="Default select example" id="tempo-juros">
+                                <option value="1" selected>Ano</option>
+                                <option value="2">Mês</option>
+                            </select>
+                          </span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="periodo" class="form-label">Periodo</label>
+                        <div class="input-group">
+                          <input type="number" class="form-control" id="periodo" placeholder="0">
+                          <span class="input-group-text">
+                            <select class="form-select" aria-label="Default select example" id="unidade-periodo">
+                                <option value="1" selected>Ano</option>
+                                <option value="2">Mês</option>
+                            </select>
+                          </span>
+                        </div>
+                    </div>
+                </form>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" onclick="calcular(), scrollToBottom()">Calcular</button>
+                </div>
+            </section>
+            <section class="calculo">
+                <h3 class="titulo">Meu cálculo</h3>
+                <div class="meu-calculo">
+                    <div class="linha-1">
+                        <p class="rotulo">Valor inicial</p>
+                        <p id="valor-inicial-res"></p>
+                    </div>
+                    <div class="linha-1">
+                        <p class="rotulo">Valor mensal</p>
+                        <p id="valor-mensal-res"></p>
+                    </div>
+                </div>
+                <div class="meu-calculo">
+                    <div class="linha-1">
+                        <p class="rotulo">Taxa de juros</p>
+                        <p id="taxa-juros-res"></p>
+                    </div>
+                    <div class="linha-1">
+                        <p class="rotulo">Periodo</p>
+                        <p id="periodo-res"></p>
+                    </div>
+                </div>
+            </section>
+            <div class="divisao"></div>
+            <section class="resultado">
+                <h3 class="titulo">Resultado</h3>
+                <div class="resultados">
+                    <div class="linha-1">
+                        <p class="rotulo">Valor total final</p>
+                        <p class="resultado-rotulo-1" id="valor-total-final"></p>
+                    </div>
+                    <div class="linha-1">
+                        <p class="rotulo">Valor total investido</p>
+                        <p class="resultado-rotulo-2" id="valor-total-investido"></p>
+                    </div>
+                    <div class="linha-1">
+                        <p class="rotulo">Total de juros</p>
+                        <p class="resultado-rotulo-3" id="total-juros"></p>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" onclick="scrollToTop(), clearForm(), clearTable()">Refazer cálculo</button>
+                </div>
+            </section>
+            <section class="tabela-dados">
+                <h3 class="titulo">Tabela</h3>
+                <div id="tabela"></div>
+            </section>
+        </main>
+        <footer class="rodape"></footer>
+    </body>
+    <script src="./app.js"></script>
+</html>
