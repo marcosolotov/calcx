@@ -28,7 +28,7 @@
                         <label for="valor-inicial" class="form-label">Valor inicial</label>
                         <div class="input-group">
                           <span class="input-group-text" id="basic-addon3">R$</span>
-                          <input type="number" class="form-control" id="valor-inicial" placeholder="0,00">
+                          <input type="number" class="form-control" id="valor-inicial" value="" placeholder="0,00">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -42,7 +42,7 @@
                         <label for="taxa-juros" class="form-label">Taxa de Juros</label>
                         <div class="input-group">
                           <span class="input-group-text" id="basic-addon3">%</span>
-                          <input type="number" class="form-control" id="taxa-juros" placeholder="0,00">
+                          <input type="number" class="form-control" id="taxa-juros" required placeholder="0,00">
                           <span class="input-group-text">
                             <select class="form-select" aria-label="Default select example" id="tempo-juros">
                                 <option value="1" selected>Ano</option>
@@ -54,7 +54,7 @@
                     <div class="mb-3">
                         <label for="periodo" class="form-label">Periodo</label>
                         <div class="input-group">
-                          <input type="number" class="form-control" id="periodo" placeholder="0">
+                          <input type="number" class="form-control" id="periodo" required placeholder="0">
                           <span class="input-group-text">
                             <select class="form-select" aria-label="Default select example" id="unidade-periodo">
                                 <option value="1" selected>Ano</option>
@@ -65,7 +65,7 @@
                     </div>
                 </form>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class="btn btn-primary" type="button" onclick="calcular(), scrollToBottom()">Calcular</button>
+                    <button class="btn btn-primary" type="button" onclick="clearTable(), calcular(), scrollToBottom()">Calcular</button>
                 </div>
             </section>
             <section class="calculo">
@@ -108,14 +108,14 @@
                         <p class="resultado-rotulo-3" id="total-juros"></p>
                     </div>
                 </div>
+            </section>
+            <section class="tabela">
+                <div   div id="tabela-corpo"></div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-primary" type="button" onclick="scrollToTop(), clearForm(), clearTable()">Refazer cálculo</button>
                 </div>
             </section>
-            <section class="tabela-dados">
-                <h3 class="titulo">Tabela</h3>
-                <div id="tabela"></div>
-            </section>
+
         </main>
         <footer class="rodape"></footer>
     </body>
