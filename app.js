@@ -1,19 +1,20 @@
 function calcular(){
 
     let taxaJuros;
-    let juros;
+    let totalJuros;
     let capital;
     let tempo;
     let montante;
     let aporte;
-    let i = 1;
+    let juros;
+    let i = 0;
     let valorInvestido;
     let unidadePeriodo;
     let select;
     let tempoJuros;
     let unidadeTempo = ' Mês';
     let conteudo = [];
-    
+
     /*capturando dados*/
     capital = parseFloat(document.getElementById('valor-inicial').value);
     aporte = parseFloat(document.getElementById('valor-mensal').value);
@@ -24,6 +25,19 @@ function calcular(){
     select = document.getElementById('tempo-juros');
     tempoJuros = select.options[select.selectedIndex].value;
 
+    if(capital == ""){
+        capital = 0
+    }
+    if(aporte == ""){
+        aporte = 0;
+    }
+    if(taxaJuros == ""){
+        taxaJuros = 0;
+    }
+    if(tempo == ""){
+        tempo = 0;
+    }
+
     if(unidadePeriodo == 1){
         tempo = tempo * 12;
         unidadeTempo = ' Ano';
@@ -32,44 +46,49 @@ function calcular(){
         document.getElementById('periodo-res').innerHTML = (tempo) + unidadeTempo;
     }
     if(tempoJuros == 1){
-        taxaJuros = taxaJuros / 1200;
-        document.getElementById('taxa-juros-res').innerHTML = (taxaJuros*100*12).toFixed(2) + ' % ao ano';
-        conteudo.push(['Tempo (Mês)', 'Montante (R$)', 'Juros (R$)']);
+        taxaJuros = (Math.pow((1 + taxaJuros/100), (1/12)) - 1);
+        document.getElementById('taxa-juros-res').innerHTML = (100*(Math.pow((taxaJuros + 1), 12) - 1)).toFixed(2) + ' % ao ano';
+        conteudo.push(['Tempo (Mês)', 'Juros (R$)', 'Total Investido (R$)', 'Total Juros (R$)', 'Total acumulado (R$)']);
     } else {
         taxaJuros = taxaJuros / 100;
         document.getElementById('taxa-juros-res').innerHTML = (taxaJuros*100).toFixed(2) + ' % ao mês';
-        conteudo.push(['Tempo (Ano)', 'Montante (R$)', 'Juros (R$)']);
+        conteudo.push(['Tempo (Mês)', 'Juros (R$)', 'Total Investido (R$)', 'Total Juros (R$)', 'Total acumulado (R$)']);
     }
 
     /*devolvendo dados*/
     document.getElementById('valor-inicial-res').innerHTML = capital.toLocaleString("pt", {style: "currency", currency: "BRL"});
     document.getElementById('valor-mensal-res').innerHTML = aporte.toLocaleString("pt", {style: "currency", currency: "BRL"});
 
-    montante = ( capital + aporte ) * ( taxaJuros + 1 );
+    montante = capital;
+    totalJuros = 0;
+    juros = 0;
+    valorInvestido = capital;
+    conteudo.push([i, juros.toFixed(2), valorInvestido.toFixed(2), totalJuros.toFixed(2), montante.toFixed(2)]);
+
+    i++;
+    montante = capital * ( taxaJuros + 1 );
+    montante += aporte;
     valorInvestido = capital + aporte;
-    juros = ( capital + aporte ) * taxaJuros;
-    
-    conteudo.push([i, montante.toFixed(2), juros.toFixed(2)]);
+    totalJuros = capital * taxaJuros;
+    juros = capital * taxaJuros;
+    conteudo.push([i, juros.toFixed(2), valorInvestido.toFixed(2), totalJuros.toFixed(2), montante.toFixed(2)]);
 
     for(i = 2; i <= tempo; i++){
-        montante = ( montante + aporte ) * ( taxaJuros + 1 );
+        montante = montante * ( taxaJuros + 1 );
+        juros = montante * taxaJuros;
+        montante += aporte;
         valorInvestido += aporte;
-        juros = montante - valorInvestido;
-        conteudo.push([
-            i, 
-            montante.toFixed(2), 
-            juros.toFixed(2)
-        ])
+        totalJuros = montante - valorInvestido;
+        conteudo.push([i, juros.toFixed(2), valorInvestido.toFixed(2), totalJuros.toFixed(2), montante.toFixed(2)]);
     }
-    juros = montante - valorInvestido;
-
-    //cria tabela
-    document.getElementById("tabela").appendChild(criarTabela(conteudo));
+    totalJuros = montante - valorInvestido;
 
     document.getElementById('valor-total-final').innerHTML = montante.toLocaleString("pt", {style: "currency", currency: "BRL"});
     document.getElementById('valor-total-investido').innerHTML = valorInvestido.toLocaleString("pt", {style: "currency", currency: "BRL"});
-    document.getElementById('total-juros').innerHTML = juros.toLocaleString("pt", {style: "currency", currency: "BRL"});
+    document.getElementById('total-juros').innerHTML = totalJuros.toLocaleString("pt", {style: "currency", currency: "BRL"});
 
+    //cria tabela
+    document.getElementById("tabela-corpo").appendChild(criarTabela(conteudo));
 }
 
 function scrollToBottom() {
@@ -85,8 +104,13 @@ function clearForm() {
 }
 
 function clearTable() {
-    let remove = document.getElementById('tabela-feita');
-    remove.remove();
+    let remove;
+
+    if (document.getElementById('tabela-feita') !== null) {
+        remove = document.getElementById('tabela-feita');
+        remove.remove();
+      }
+    
 }
 
 function criarTabela(conteudo) {
@@ -105,6 +129,7 @@ function criarTabela(conteudo) {
       }
       (i==0)?thead.appendChild(tr):tbody.appendChild(tr);
     }
+
     tabela.appendChild(thead);
     tabela.appendChild(tbody);
     return tabela;
