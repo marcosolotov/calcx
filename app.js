@@ -47,8 +47,9 @@ function calcular(){
 
     montante = ( capital + aporte ) * ( taxaJuros + 1 );
     valorInvestido = capital + aporte;
+    juros = ( capital + aporte ) * taxaJuros;
     
-    conteudo.push([i, montante.toFixed(2), 0]);
+    conteudo.push([i, montante.toFixed(2), juros.toFixed(2)]);
 
     for(i = 2; i <= tempo; i++){
         montante = ( montante + aporte ) * ( taxaJuros + 1 );
