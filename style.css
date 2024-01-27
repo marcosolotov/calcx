@@ -101,11 +101,6 @@ p {
     color: green;
 }
 
-.scroll {
-    overflow: scroll;
-    height: 500px;
-}
-
 th {
     font-weight: bold;
     color: rgb(80, 80, 90);
