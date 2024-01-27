@@ -119,6 +119,8 @@ function criarTabela(conteudo) {
     tabela.classList.add("table");
     tabela.classList.add("table-striped");
     let thead = document.createElement("thead");
+    let div=document.createElement("div");
+    div.classList.add("scroll");
     let tbody=document.createElement("tbody");
     let thd=function(i){return (i==0)?"th":"td";};
     for (var i=0;i<conteudo.length;i++) {
@@ -131,8 +133,8 @@ function criarTabela(conteudo) {
       }
       (i==0)?thead.appendChild(tr):tbody.appendChild(tr);
     }
-
+    div.appendChild(tbody);
     tabela.appendChild(thead);
-    tabela.appendChild(tbody);
+    tabela.appendChild(div);
     return tabela;
   }
