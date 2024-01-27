@@ -123,6 +123,10 @@ table {
 
 #tabela-corpo {
     margin: 0 0 20px 0;
+    height: 600px;
+    overflow: scroll;
+    padding: 10px;
+    border: 3px solid whitesmoke;
 }
 
 @media screen and (min-width: 0) {
