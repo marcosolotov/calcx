@@ -87,6 +87,10 @@ function calcular(){
     document.getElementById('valor-total-investido').innerHTML = valorInvestido.toLocaleString("pt", {style: "currency", currency: "BRL"});
     document.getElementById('total-juros').innerHTML = totalJuros.toLocaleString("pt", {style: "currency", currency: "BRL"});
 
+    let div = document.createElement('div');
+    div.id = 'tabela-corpo';
+    tabela = document.getElementsByClassName("tabela")[0];
+    tabela.prepend(div);
     //cria tabela
     document.getElementById("tabela-corpo").appendChild(criarTabela(conteudo));
 }
@@ -107,7 +111,7 @@ function clearTable() {
     let remove;
 
     if (document.getElementById('tabela-feita') !== null) {
-        remove = document.getElementById('tabela-feita');
+        remove = document.getElementById('tabela-corpo');
         remove.remove();
       }
     
