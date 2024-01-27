@@ -116,7 +116,8 @@ function clearTable() {
 function criarTabela(conteudo) {
     let tabela = document.createElement("table");
     tabela.id = 'tabela-feita';
-    tabela.classList.add("table table-striped")
+    tabela.classList.add("table");
+    tabela.classList.add("table-striped");
     let thead = document.createElement("thead");
     let tbody=document.createElement("tbody");
     let thd=function(i){return (i==0)?"th":"td";};
