@@ -64,8 +64,7 @@ function calcular(){
     juros = 0;
     valorInvestido = capital;
     conteudo.push([i, juros.toFixed(2), valorInvestido.toFixed(2), totalJuros.toFixed(2), montante.toFixed(2)]);
-
-    let conta = 1
+    
     i++;
     montante = capital * ( taxaJuros + 1 );
     montante += aporte;
@@ -81,11 +80,6 @@ function calcular(){
         valorInvestido += aporte;
         totalJuros = montante - valorInvestido;
         conteudo.push([i, juros.toFixed(2), valorInvestido.toFixed(2), totalJuros.toFixed(2), montante.toFixed(2)]);
-        if(conta == 11){
-            aporte = aporte*1.05;
-            conta = 0
-        }
-        conta++
     }
     totalJuros = montante - valorInvestido;
 
